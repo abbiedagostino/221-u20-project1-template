@@ -23,41 +23,45 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const feeditem1 = {
-  title: "Marist Story 1"
-  body: "Story 1 this is"
-  linkurl: "https://goredfoxes.com/news/2025/6/17/mens-track-field-logan-schaeffler-set-to-compete-at-usatf-u20-national-championships.aspx"
-  image: "/images/news_pic.jpg"
+  title: "Mens Track and  Field",
+  body: "Logan Schaeffler to compete in national championship!",
+  linkurl: "https://goredfoxes.com/news/2025/6/17/mens-track-field-logan-schaeffler-set-to-compete-at-usatf-u20-national-championships.aspx",
+  imageurl: "/images/news_pic.jpg",
 };
 
 const feeditem2 = {
-  title: "Marist Story 2",
-  body: "this is story 2",
+  title: "Woman's Basketball",
+  body: "Marist Basketball team takes part in Paradise Jam, a prestigious basketball tournament. ",
   linkurl: "https://goredfoxes.com/news/2025/7/9/marist-womens-basketball-heads-to-paradise-jam.aspx ",
   imageurl: "/images/hancock.jpeg",
 };
 
 const feeditem3 = {
-  title: "Marist story 3"
-  body: "This is story 3"
-  linkurl: "https://goredfoxes.com/news/2025/7/2/four-marist-softball-players-finish-atop-ncaa-statistical-categories.aspx"
-  imageurl:"/images/campus.png"
+  title: "Marist Softball",
+  body: "Marist Sofball players finish in top categories!",
+  linkurl: "https://goredfoxes.com/news/2025/7/2/four-marist-softball-players-finish-atop-ncaa-statistical-categories.aspx",
+  imageurl: "/images/campus.png",
 };
 
 let currentStories = [feeditem1, feeditem2, feeditem3];
-/*
-function displayItem(feedItem) {
-  const newsfeed = document.getElementById("newsfeed");
-  newsfeed.innerHTML += `
 
 
-  `;
-}
-*/
-window.addEventListener("load", function () { 
+window.addEventListener("load", function () {
   const newsfeed = document.getElementById("newsfeed");
-  for (let i = 0; i < currentStories.length; i++)
-  {
-    newsfeed.innerHTML += currentStories[0]
-    
+  function displayItem(item) {
+
+    for (let i = 0; i < currentStories.length; i++) {
+      const story = currentStories[i];
+      newsfeed.innerHTML += ` 
+    <div class="item">
+        <h2>${story.title}</h2>
+        <img class="feedImage" src="${story.imageurl}" alt="${story.title}">
+        <p>${story.body}</p>
+        <a href="${story.linkUrl}">Read more</a><br>
+      </div>
+      <hr>
+    `;
+    }
   }
+  displayItem();
 });
