@@ -1,5 +1,4 @@
 function checkKeyPress(e) {
-  // Example: redirect on spacebar press
   if (e.code === "Space") {
     e.preventDefault();
     goToLocation("http://my.marist.edu");
@@ -43,7 +42,7 @@ function displayItem(item, index) {
 
 function getCurrentFeed() {
   const newsfeed = document.getElementById("newsfeed");
-  newsfeed.innerHTML = ""; // Clear existing items
+  newsfeed.innerHTML = ""; 
 
   fetch("/feed/api")
     .then((response) => response.json())
@@ -63,7 +62,7 @@ function deleteFeedItem(id) {
   })
     .then((response) => {
       if (response.ok) {
-        getCurrentFeed(); // Refresh the feed after delete
+        getCurrentFeed(); 
       } else {
         console.error("Delete failed");
       }
